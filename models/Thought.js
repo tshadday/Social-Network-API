@@ -3,7 +3,8 @@ const { Schema, model } = require('mongoose');
 const reactionSchema = new Schema(
     {
         reactionId: {
-
+            type: Schema.Types.ObjectId,
+            default: () => new Types.ObjectId(),
         },
         reactionBody: {
             type: String,
@@ -51,6 +52,7 @@ const thoughtSchema = new Schema(
     }
 );
 
+// create virtual called reactionCount that retrieves the length of the thought's reactions array field on query.
 
 const Thought = model('thought', thoughtSchema);
 
