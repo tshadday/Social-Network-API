@@ -11,7 +11,7 @@ module.exports = {
     },
 
     // get a single thought by id
-    getSingleThought() {
+    getSingleThought(req, res) {
         Thought.findOne({ _id: req.params.thoughtId })
         .select('-__v')
         .then((thought) =>
@@ -23,7 +23,7 @@ module.exports = {
     },
 
     // create a new thought
-    createThought() {
+    createThought(req, res) {
         Thought.create(req.body)
         .then((thought) => res.json(thought))
         .catch((err) => {
@@ -33,7 +33,7 @@ module.exports = {
     },
 
     // update a thought by id
-    updateThought() {
+    updateThought(req, res) {
         Thought.findOneAndUpdate(
             { _id: req.params.thoughtId },
             { $set: req.body },
@@ -48,7 +48,7 @@ module.exports = {
     },
 
     // deletes a thought by id
-    deleteThought() {
+    deleteThought(req, res) {
         Thought.findOneAndDelete({ _id: req.params.thoughtId })
         .then((thought) => 
             !thought
