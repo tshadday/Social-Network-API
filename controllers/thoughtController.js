@@ -1,6 +1,8 @@
 const { Thought, User } = require('../models');
 
 module.exports = {
+    // THOUGHTS
+
     // get all thoughts
     getThought(req, res) {
         Thought.find()
@@ -54,5 +56,14 @@ module.exports = {
                 : res.json(thought)
         )
         .catch((err) => res.status(500).json(err));
+    },
+
+    // THOUGHT'S REACTIONS
+    addReaction(req, res) {
+
+    },
+
+    deleteReaction(req, res) {
+
     },
 };

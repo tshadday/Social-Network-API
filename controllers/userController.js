@@ -1,6 +1,8 @@
 const { User, Thought } = require('../models');
 
 module.exports = {
+    // USERS
+
     // get all users
     getUser(req, res) {
         User.find()
@@ -55,5 +57,15 @@ module.exports = {
         )
         .then(() => res.json({ message: 'User and associated thoughts deleted!' }))
         .catch((err) => res.status(500).json(err));
+    },
+
+
+    // USER'S FRIENDS
+    addFriend(req, res) {
+
+    },
+
+    deleteFriend(req, res) {
+
     },
 };
